@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>匹克球雙打淘汰賽對戰圖</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Microsoft JhengHei', 'PingFang TC', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 30px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 32px;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+            font-size: 16px;
+        }
+        
+        .tournament-bracket {
+            display: flex;
+            flex-direction: column-reverse;
+            gap: 40px;
+            overflow-x: auto;
+            padding: 20px 0;
+        }
+        
+        .round {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .round-title {
+            text-align: center;
+            font-weight: bold;
+            color: white;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            padding: 12px 30px;
+            border-radius: 25px;
+            margin-bottom: 20px;
+            font-size: 18px;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .round-matches {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 100%;
+        }
+        
+        .matchup {
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            position: relative;
+            min-width: 250px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .matchup:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+            border-color: #667eea;
+        }
+        
+        .team {
+            padding: 15px 20px;
+            border-bottom: 1px solid #e9ecef;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: white;
+            transition: background 0.3s ease;
+        }
+        
+        .team:last-child {
+            border-bottom: none;
+        }
+        
+        .team:hover {
+            background: #f0f4ff;
+        }
+        
+        .team-name {
+            font-weight: 500;
+            color: #333;
+        }
+        
+        .team-seed {
+            background: #667eea;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 12px;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+        
+        .winner {
+            background: #d4edda !important;
+            border-left: 4px solid #28a745;
+        }
+        
+        .winner .team-name {
+            color: #155724;
+            font-weight: bold;
+        }
+        
+        .champion {
+            background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 30px;
+            border: 3px solid #f4c430;
+            box-shadow: 0 8px 20px rgba(255, 215, 0, 0.4);
+        }
+        
+        .champion-title {
+            font-size: 28px;
+            font-weight: bold;
+            color: #8b6914;
+            margin-bottom: 10px;
+        }
+        
+        .champion-name {
+            font-size: 36px;
+            font-weight: bold;
+            color: #5a4a0a;
+        }
+        
+        .trophy {
+            font-size: 64px;
+            margin-bottom: 15px;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .bye {
+            background: #fff3cd;
+            font-style: italic;
+            color: #856404;
+        }
+
+        .connector {
+            height: 40px;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .connector-line {
+            width: 3px;
+            background: linear-gradient(180deg, transparent 0%, #667eea 50%, transparent 100%);
+            height: 100%;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 24px;
+            }
+            
+            .tournament-bracket {
+                gap: 20px;
+            }
+            
+            .matchup {
+                min-width: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🏓 匹克球雙打淘汰賽</h1>
+        <p class="subtitle">26人（13組）單淘汰賽制 | 由下往上晉級到冠軍</p>
+        
+        <div class="tournament-bracket">
+            <!-- 冠軍 (最上層) -->
+            <div class="champion">
+                <div class="trophy">🏆</div>
+                <div class="champion-title">冠軍</div>
+                <div class="champion-name">待決賽產生</div>
+            </div>
+            
+            <!-- 決賽 -->
+            <div class="round">
+                <div class="round-title">🏆 決賽</div>
+                <div class="round-matches">
+                    <div class="matchup">
+                        <div class="team">
+                            <div><span class="team-name">準決賽勝者 1</span></div>
+                        </div>
+                        <div class="team">
+                            <div><span class="team-name">準決賽勝者 2</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="connector">
+                <div class="connector-line"></div>
+            </div>
+            
+            <!-- 第三輪 (準決賽) -->
+            <div class="round">
+                <div class="round-title">準決賽 (4強)</div>
+                <div class="round-matches">
+                    <div class="matchup">
+                        <div class="team">
+                            <div><span class="team-name">8強勝者 A</span></div>
+                        </div>
+                        <div class="team">
+                            <div><span class="team-name">8強勝者 B</span></div>
+                        </div>
+                    </div>
+                    
+                    <div class="matchup">
+                        <div class="team">
+                            <div><span class="team-name">8強勝者 C</span></div>
+                        </div>
+                        <div class="team">
+                            <div><span class="team-name">8強勝者 D</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="connector">
+                <div class="connector-line"></div>
+            </div>
+            
+            <!-- 第二輪 (8強) -->
+            <div class="round">
+                <div class="round-title">第二輪 (8強)</div>
+                <div class="round-matches">
+                    <div class="matchup">
+                        <div class="team">
+                            <div><span class="team-name">第1組 vs 8/9組勝者</span></div>
+                        </div>
+                        <div class="team">
+                            <div><span class="team-name">等待比賽結果</span></div>
+                        </div>
+                    </div>
+                    
+                    <div class="matchup">
+                        <div class="team">
+                            <div><span class="team-name">第4組 vs 13組勝者</span></div>
+                        </div>
+                        <div class="team">
+                            <div><span class="team-name">第5組 vs 12組勝者</span></div>
+                        </div>
+                    </div>
+                    
+                    <div class="matchup">
+                        <div class="team">
+                            <div><span class="team-name">第2組 vs 7/10組勝者</span></div>
+                        </div>
+                        <div class="team">
+                            <div><span class="team-name">等待比賽結果</span></div>
+                        </div>
+                    </div>
+                    
+                    <div class="matchup">
+                        <div class="team">
+                            <div><span class="team-name">第3組 vs 6/11組勝者</span></div>
+                        </div>
+                        <div class="team">
+                            <div><span class="team-name">等待比賽結果</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="connector">
+                <div class="connector-line"></div>
+            </div>
+            
+            <!-- 第一輪 (16強) -->
+            <div class="round">
+                <div class="round-title">第一輪 (16強)</div>
+                <div class="round-matches">
+                    <div class="matchup">
+                        <div class="team">
+                            <div><span class="team-seed">#1</span><span class="team-name">第1組</span></div>
+                        </div>
+                        <div class="team bye">
+                            <div><span class="team-name">輪空 (BYE)</span></div>
+                        </div>
+                    </div>
+                    
+                    <div class="matchup">
+                        <div class="team">
+                            <div><span class="team-seed">#8</span><span class="team-name">第8組</span></div>
+                        </div>
+                        <div class="team">
+                            <div><span class="team-seed">#9</span><span class="team-name">第9組</span></div>
+                        </div>
+                    </div>
+                    
+                    <div class="matchup">
+                        <div class="team">
+                            <div><span class="team-seed">#4</span><span class="team-name">第4組</span></div>
+                        </div>
+                        <div class="team">
+                            <div><span class="team-seed">#13</span><span class="team-name">第13組</span></div>
+                        </div>
+                    </div>
+                    
+                    <div class="matchup">
+                        <div class="team">
+                            <div><span class="team-seed">#5</span><span class="team-name">第5組</span></div>
+                        </div>
+                        <div class="team">
+                            <div><span class="team-seed">#12</span><span class="team-name">第12組</span></div>
+                        </div>
+                    </div>
+                    
+                    <div class="matchup">
+                        <div class="team">
+                            <div><span class="team-seed">#2</span><span class="team-name">第2組</span></div>
+                        </div>
+                        <div class="team bye">
+                            <div><span class="team-name">輪空 (BYE)</span></div>
+                        </div>
+                    </div>
+                    
+                    <div class="matchup">
+                        <div class="team">
+                            <div><span class="team-seed">#7</span><span class="team-name">第7組</span></div>
+                        </div>
+                        <div class="team">
+                            <div><span class="team-seed">#10</span><span class="team-name">第10組</span></div>
+                        </div>
+                    </div>
+                    
+                    <div class="matchup">
+                        <div class="team">
+                            <div><span class="team-seed">#3</span><span class="team-name">第3組</span></div>
+                        </div>
+                        <div class="team bye">
+                            <div><span class="team-name">輪空 (BYE)</span></div>
+                        </div>
+                    </div>
+                    
+                    <div class="matchup">
+                        <div class="team">
+                            <div><span class="team-seed">#6</span><span class="team-name">第6組</span></div>
+                        </div>
+                        <div class="team">
+                            <div><span class="team-seed">#11</span><span class="team-name">第11組</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div style="margin-top: 30px; padding: 20px; background: #e7f3ff; border-radius: 10px; border-left: 4px solid #2196F3;">
+            <h3 style="color: #1976D2; margin-bottom: 10px;">📋 賽制說明</h3>
+            <ul style="color: #555; line-height: 1.8; margin-left: 20px;">
+                <li>總共26人參賽，配對成13組雙打組合</li>
+                <li>採用單淘汰賽制，共需4輪比賽產生冠軍</li>
+                <li>第1、2、3種子組於第一輪輪空，直接晉級第二輪</li>
+                <li>比賽由下往上進行，最終在頂端產生冠軍</li>
+                <li>第一輪：8場比賽（3場輪空 + 5場對戰）</li>
+                <li>第二輪（8強）：4場比賽</li>
+                <li>準決賽（4強）：2場比賽</li>
+                <li>決賽：1場比賽，產生冠軍</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

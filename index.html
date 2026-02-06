@@ -207,203 +207,114 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>🏓 匹克球雙打淘汰賽</h1>
-        <p class="subtitle">26人（13組）單淘汰賽制 | 由下往上晉級到冠軍</p>
-        
-        <div class="tournament-bracket">
-            <!-- 冠軍 (最上層) -->
-            <div class="champion">
-                <div class="trophy">🏆</div>
-                <div class="champion-title">冠軍</div>
-                <div class="champion-name">待決賽產生</div>
-            </div>
-            
-            <!-- 決賽 -->
-            <div class="round">
-                <div class="round-title">🏆 決賽</div>
-                <div class="round-matches">
-                    <div class="matchup">
-                        <div class="team">
-                            <div><span class="team-name">準決賽勝者 1</span></div>
-                        </div>
-                        <div class="team">
-                            <div><span class="team-name">準決賽勝者 2</span></div>
-                        </div>
-                    </div>
+<div class="container">
+    <h1>🏓 匹克球分組淘汰賽</h1>
+    <p class="subtitle">26 人（13 組）｜3 場地同步｜輸一場即休息</p>
+
+    <div class="tournament-bracket">
+
+        <!-- 總冠軍 -->
+        <div class="champion">
+            <div class="trophy">🏆</div>
+            <div class="champion-title">總冠軍</div>
+            <div class="champion-name">分組冠軍三方互打產生</div>
+        </div>
+
+         <!-- 總決賽 (三方 Round Robin) -->
+        <div class="round">
+            <div class="round-title">🏆 總決賽（三方三局制，取積分最高者）</div>
+            <div class="round-matches">
+                <div class="matchup">
+                    <div class="team">A 場地冠軍</div>
+                    <div class="team">B 場地冠軍</div>
                 </div>
-            </div>
-            
-            <div class="connector">
-                <div class="connector-line"></div>
-            </div>
-            
-            <!-- 第三輪 (準決賽) -->
-            <div class="round">
-                <div class="round-title">準決賽 (4強)</div>
-                <div class="round-matches">
-                    <div class="matchup">
-                        <div class="team">
-                            <div><span class="team-name">8強勝者 A</span></div>
-                        </div>
-                        <div class="team">
-                            <div><span class="team-name">8強勝者 B</span></div>
-                        </div>
-                    </div>
-                    
-                    <div class="matchup">
-                        <div class="team">
-                            <div><span class="team-name">8強勝者 C</span></div>
-                        </div>
-                        <div class="team">
-                            <div><span class="team-name">8強勝者 D</span></div>
-                        </div>
-                    </div>
+                <div class="matchup">
+                    <div class="team">A 場地冠軍</div>
+                    <div class="team">C 場地冠軍</div>
                 </div>
-            </div>
-            
-            <div class="connector">
-                <div class="connector-line"></div>
-            </div>
-            
-            <!-- 第二輪 (8強) -->
-            <div class="round">
-                <div class="round-title">第二輪 (8強)</div>
-                <div class="round-matches">
-                    <div class="matchup">
-                        <div class="team">
-                            <div><span class="team-name">第1組 vs 8/9組勝者</span></div>
-                        </div>
-                        <div class="team">
-                            <div><span class="team-name">等待比賽結果</span></div>
-                        </div>
-                    </div>
-                    
-                    <div class="matchup">
-                        <div class="team">
-                            <div><span class="team-name">第4組 vs 13組勝者</span></div>
-                        </div>
-                        <div class="team">
-                            <div><span class="team-name">第5組 vs 12組勝者</span></div>
-                        </div>
-                    </div>
-                    
-                    <div class="matchup">
-                        <div class="team">
-                            <div><span class="team-name">第2組 vs 7/10組勝者</span></div>
-                        </div>
-                        <div class="team">
-                            <div><span class="team-name">等待比賽結果</span></div>
-                        </div>
-                    </div>
-                    
-                    <div class="matchup">
-                        <div class="team">
-                            <div><span class="team-name">第3組 vs 6/11組勝者</span></div>
-                        </div>
-                        <div class="team">
-                            <div><span class="team-name">等待比賽結果</span></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="connector">
-                <div class="connector-line"></div>
-            </div>
-            
-            <!-- 第一輪 (16強) -->
-            <div class="round">
-                <div class="round-title">第一輪 (16強)</div>
-                <div class="round-matches">
-                    <div class="matchup">
-                        <div class="team">
-                            <div><span class="team-seed">#1</span><span class="team-name">第1組</span></div>
-                        </div>
-                        <div class="team bye">
-                            <div><span class="team-name">輪空 (BYE)</span></div>
-                        </div>
-                    </div>
-                    
-                    <div class="matchup">
-                        <div class="team">
-                            <div><span class="team-seed">#8</span><span class="team-name">第8組</span></div>
-                        </div>
-                        <div class="team">
-                            <div><span class="team-seed">#9</span><span class="team-name">第9組</span></div>
-                        </div>
-                    </div>
-                    
-                    <div class="matchup">
-                        <div class="team">
-                            <div><span class="team-seed">#4</span><span class="team-name">第4組</span></div>
-                        </div>
-                        <div class="team">
-                            <div><span class="team-seed">#13</span><span class="team-name">第13組</span></div>
-                        </div>
-                    </div>
-                    
-                    <div class="matchup">
-                        <div class="team">
-                            <div><span class="team-seed">#5</span><span class="team-name">第5組</span></div>
-                        </div>
-                        <div class="team">
-                            <div><span class="team-seed">#12</span><span class="team-name">第12組</span></div>
-                        </div>
-                    </div>
-                    
-                    <div class="matchup">
-                        <div class="team">
-                            <div><span class="team-seed">#2</span><span class="team-name">第2組</span></div>
-                        </div>
-                        <div class="team bye">
-                            <div><span class="team-name">輪空 (BYE)</span></div>
-                        </div>
-                    </div>
-                    
-                    <div class="matchup">
-                        <div class="team">
-                            <div><span class="team-seed">#7</span><span class="team-name">第7組</span></div>
-                        </div>
-                        <div class="team">
-                            <div><span class="team-seed">#10</span><span class="team-name">第10組</span></div>
-                        </div>
-                    </div>
-                    
-                    <div class="matchup">
-                        <div class="team">
-                            <div><span class="team-seed">#3</span><span class="team-name">第3組</span></div>
-                        </div>
-                        <div class="team bye">
-                            <div><span class="team-name">輪空 (BYE)</span></div>
-                        </div>
-                    </div>
-                    
-                    <div class="matchup">
-                        <div class="team">
-                            <div><span class="team-seed">#6</span><span class="team-name">第6組</span></div>
-                        </div>
-                        <div class="team">
-                            <div><span class="team-seed">#11</span><span class="team-name">第11組</span></div>
-                        </div>
-                    </div>
+                <div class="matchup">
+                    <div class="team">B 場地冠軍</div>
+                    <div class="team">C 場地冠軍</div>
                 </div>
             </div>
         </div>
-        
-        <div style="margin-top: 30px; padding: 20px; background: #e7f3ff; border-radius: 10px; border-left: 4px solid #2196F3;">
-            <h3 style="color: #1976D2; margin-bottom: 10px;">📋 賽制說明</h3>
-            <ul style="color: #555; line-height: 1.8; margin-left: 20px;">
-                <li>總共26人參賽，配對成13組雙打組合</li>
-                <li>採用單淘汰賽制，共需4輪比賽產生冠軍</li>
-                <li>第1、2、3種子組於第一輪輪空，直接晉級第二輪</li>
-                <li>比賽由下往上進行，最終在頂端產生冠軍</li>
-                <li>第一輪：8場比賽（3場輪空 + 5場對戰）</li>
-                <li>第二輪（8強）：4場比賽</li>
-                <li>準決賽（4強）：2場比賽</li>
-                <li>決賽：1場比賽，產生冠軍</li>
-            </ul>
+
+        <!-- A 場地 -->
+        <div class="round">
+            <div class="round-title">🟥 A 場地（4 組）</div>
+            <div class="round-matches">
+                <div class="matchup">
+                    <div class="team">第 1 組</div>
+                    <div class="team">第 2 組</div>
+                </div>
+                <div class="matchup">
+                    <div class="team">第 3 組</div>
+                    <div class="team">第 4 組</div>
+                </div>
+                <div class="matchup">
+                    <div class="team">第 1、2 組勝方</div>
+                    <div class="team">第 3、4 組勝方</div>
+                </div>
+            </div>
         </div>
+
+        <!-- B 場地 -->
+        <div class="round">
+            <div class="round-title">🟦 B 場地（4 組）</div>
+            <div class="round-matches">
+                <div class="matchup">
+                    <div class="team">第 5 組</div>
+                    <div class="team">第 6 組</div>
+                </div>
+                <div class="matchup">
+                    <div class="team">第 7 組</div>
+                    <div class="team">第 8 組</div>
+                </div>
+                <div class="matchup">
+                    <div class="team">第 5、6 組勝方</div>
+                    <div class="team">第 7、8 組勝方</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- C 場地 -->
+        <div class="round">
+            <div class="round-title">🟩 C 場地（5 組）</div>
+            <div class="round-matches">
+                <div class="matchup">
+                    <div class="team">第 9 組</div>
+                    <div class="team">第 10 組</div>
+                </div>
+                <div class="matchup">
+                    <div class="team">第 11 組</div>
+                    <div class="team">第 12 組</div>
+                </div>
+                <div class="matchup">
+                    <div class="team">第 9、10 組勝方</div>
+                    <div class="team">第 13 組</div>
+                </div>
+                <div class="matchup">
+                    <div class="team">第 11、12 組勝方</div>
+                    <div class="team">第 9、10 組勝方 VS 第 13 組勝方</div>
+                </div>
+            </div>
+        </div>
+
     </div>
+
+    <div style="margin-top:30px;padding:20px;background:#e7f3ff;border-radius:10px;border-left:4px solid #2196F3;">
+        <h3 style="color:#1976D2;">📋 現場說明（照念就好）</h3>
+        <ul style="line-height:1.8;margin-left:20px;">
+            <li>每個場地自己打，輸了就休息</li>
+            <li>贏的組留在原場地繼續打下一場</li>
+            <li>每個場地最後剩下的一組就是該場地冠軍</li>
+            <li>場地冠軍再視時間進行總決賽</li>
+            <li>全程約 10 場，比賽可在 1.5 小時內完成</li>
+        </ul>
+    </div>
+</div>
 </body>
+
+
+
 </html>
